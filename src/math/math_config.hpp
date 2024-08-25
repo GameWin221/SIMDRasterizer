@@ -1,0 +1,17 @@
+#ifndef SIMD_EXPERIMENT_MATH_CONFIG_HPP
+#define SIMD_EXPERIMENT_MATH_CONFIG_HPP
+
+#define MATH_ENABLE_SIMD
+#define MATH_SIMD_AVX
+//#define MATH_SIMD_SSE
+#define MATH_EXTRACT_NAMESPACE_TYPES
+
+#ifdef MATH_SIMD_AVX
+    #undef MATH_SIMD_SSE
+#endif
+
+#ifdef MATH_SIMD_SSE
+    #undef MATH_SIMD_AVX
+#endif
+
+#endif
