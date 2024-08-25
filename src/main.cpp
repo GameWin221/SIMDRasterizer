@@ -108,7 +108,7 @@ i32 main() {
 
     auto last_frame_time = std::chrono::high_resolution_clock::now();
 
-    f32 time = std::numbers::pi * 0.9f;
+    f32 time = std::numbers::pi * 1.85f;
     do {
         auto now = std::chrono::high_resolution_clock::now();
         f32 delta_time = std::chrono::duration<f32>(now - last_frame_time).count();
