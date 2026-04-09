@@ -3,7 +3,7 @@ A week-long project to learn a bit about SIMD and software rasterization.
 
 ![rasterizer_gif](images/rasterizer.gif)
 
-As you can see - Instead of triangles it uses "Patches".
+As you can see - Instead of triangles it draws "Patches".
 
 ![tribb](images/tribb.png)
 
@@ -17,7 +17,7 @@ The analyzed frame at 960x540 resolution:
 
 ![benchmarked_frame](images/frame.png)
 
-The below table shows the average duration of drawing a single frame:
+The table below shows the average frametime:
 
 |                        | Clang (18.1.8) | GCC (14.2.0) | MSVC (19.38.33135) |
 |------------------------|----------------|--------------|--------------------|
@@ -30,6 +30,6 @@ The below table shows the average duration of drawing a single frame:
 
 Compilation flags for GCC and Clang: `-O3 -mavx -mavx2 -msse -msse2 -msse3 -msse4 -msse4.1 -msse4.2`
 
-Compilation flags for MSVC: `/O2 /Qpar`
+Compilation flags for MSVC: `/O2 /arch:AVX2 /Qpar`
 
 According to the gathered data it is clearly visible that in this particular case both Clang and GCC optimized the math functions almost perfectly basically making the manual SIMD optimizations pointless. MSVC was the only one that benefited from manual SIMD optimizations (24.8% improvement). 
